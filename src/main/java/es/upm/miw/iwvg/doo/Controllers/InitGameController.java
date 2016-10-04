@@ -60,5 +60,10 @@ public class InitGameController {
 		return this.stockStack;
 
 	}
+	
+	public WasteStack getWasteStack(){
+		return this.wasteStack;
+		
+	}
 
 }

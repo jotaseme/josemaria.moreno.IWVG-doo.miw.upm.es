@@ -7,14 +7,15 @@ public class InitGameView {
 	
 	TableauStackView tableauStackView = new TableauStackView();
 	StockStackView stockStackView = new StockStackView();
-	
+	WasteStackView wasteStackView = new WasteStackView();
+
 	public void renderView(InitGameController initGame) {
 
 		IO io = new IO();
 		io.writeln("===========================");
 		
 		stockStackView.renderView();
-		
+		wasteStackView.renderView(initGame.getWasteStack());
 		tableauStackView.renderView(initGame.getTableau());
 		
 
