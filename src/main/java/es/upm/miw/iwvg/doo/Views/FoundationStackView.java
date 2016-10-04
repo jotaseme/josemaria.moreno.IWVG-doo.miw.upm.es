@@ -1,0 +1,25 @@
+package es.upm.miw.iwvg.doo.Views;
+
+import java.util.ArrayList;
+
+import es.upm.miw.iwvg.doo.Models.FoundationStack;
+import es.upm.miw.iwvg.doo.Utils.IO;
+
+public class FoundationStackView {
+	public void renderView(ArrayList<FoundationStack> foundationStack) {
+		IO io = new IO();
+		for (int i = 0; i < foundationStack.size(); i++) {
+			io.write("Palo " + foundationStack.get(i).getFoundationType() + ":");
+			if(foundationStack.get(i).isEmpty()){
+				io.write(" <vacio>\n");			
+			}else{
+				for (int j = 0; j < foundationStack.get(i).size(); j++) {
+					new CardView(foundationStack.get(i).get(j)).render(i + 1);
+				}				
+			}
+			
+		}
+
+	}
+
+}

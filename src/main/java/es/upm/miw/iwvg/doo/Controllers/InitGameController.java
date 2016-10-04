@@ -6,6 +6,7 @@ import java.util.Collections;
 import es.upm.miw.iwvg.doo.Models.Card;
 import es.upm.miw.iwvg.doo.Models.CardType;
 import es.upm.miw.iwvg.doo.Models.FoundationStack;
+import es.upm.miw.iwvg.doo.Models.FoundationType;
 import es.upm.miw.iwvg.doo.Models.StockStack;
 import es.upm.miw.iwvg.doo.Models.TableauStack;
 import es.upm.miw.iwvg.doo.Models.WasteStack;
@@ -27,8 +28,9 @@ public class InitGameController {
 		stacksInizialization(stockStack, tableaus);
 
 		foundations = new ArrayList<FoundationStack>();
-		for (int i = 0; i < StockStack.NUM_FOUNDATION_STACKS; i++) {
-			foundations.add(new FoundationStack());
+		
+		for (FoundationType foundationType:FoundationType.values()) {
+			foundations.add(new FoundationStack(foundationType));
 		}
 	}
 
@@ -65,5 +67,11 @@ public class InitGameController {
 		return this.wasteStack;
 		
 	}
+	
+	public ArrayList<FoundationStack> getFoundation() {
+		return this.foundations;
+
+	}
+	
 
 }
