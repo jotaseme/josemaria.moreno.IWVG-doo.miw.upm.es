@@ -14,7 +14,7 @@ public class CardView {
 
 	public void render(int index) {
 		IO io = new IO();
-		io.write("Escalera " + index + ":");
+		
 		if (!this.card.isHidden()) {
 			io.write("[" + this.card.getValue() + "," + this.card.getCardType() + "]\n");
 		} else {
