@@ -28,8 +28,8 @@ public class InitGameController {
 		stacksInizialization(stockStack, tableaus);
 
 		foundations = new ArrayList<FoundationStack>();
-		
-		for (FoundationType foundationType:FoundationType.values()) {
+
+		for (FoundationType foundationType : FoundationType.values()) {
 			foundations.add(new FoundationStack(foundationType));
 		}
 	}
@@ -57,21 +57,24 @@ public class InitGameController {
 		return this.tableaus;
 
 	}
-	
+
 	public StockStack getStockStack() {
 		return this.stockStack;
 
 	}
-	
-	public WasteStack getWasteStack(){
+
+	public WasteStack getWasteStack() {
 		return this.wasteStack;
-		
+
 	}
-	
+
+	public void setWasteStack(WasteStack w) {
+		this.wasteStack = w;
+	}
+
 	public ArrayList<FoundationStack> getFoundation() {
 		return this.foundations;
 
 	}
-	
 
 }

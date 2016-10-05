@@ -11,19 +11,19 @@ public class InitGameView {
 	WasteStackView wasteStackView = new WasteStackView();
 	MenuController menuController = new MenuController();
 	FoundationStackView foundationStackView = new FoundationStackView();
+	
 
 	public void renderView(InitGameController initGame) {
-
 		IO io = new IO();
-		io.writeln("===========================");
-
-		stockStackView.renderView();
-		wasteStackView.renderView(initGame.getWasteStack());
-		foundationStackView.renderView(initGame.getFoundation());
-		tableauStackView.renderView(initGame.getTableau());
-		
-		menuController.renderOptions();
-		int selector = menuController.optionSelector();
-
+		boolean ok = true;
+		do{	
+			io.writeln("===========================");			
+			stockStackView.renderView();
+			wasteStackView.renderView(initGame.getWasteStack());
+			foundationStackView.renderView(initGame.getFoundation());
+			tableauStackView.renderView(initGame.getTableau());		
+			menuController.renderOptions();
+			menuController.optionSelector(initGame);
+		}while(ok);
 	}
 }
