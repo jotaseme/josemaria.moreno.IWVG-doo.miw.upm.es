@@ -1,14 +1,14 @@
-import es.upm.miw.iwvg.doo.Controllers.InitGameController;
-import es.upm.miw.iwvg.doo.Views.InitGameView;
+
+import es.upm.miw.iwvg.doo.Models.Game;
+import es.upm.miw.iwvg.doo.Views.GameView;
 
 public class Klondike {
 	
 	public static void main(String[] args) {
-		InitGameController initGameController = new InitGameController();
-	    InitGameView initGameView  = new InitGameView();
-	    initGameView.renderView(initGameController);
-	
-
+		Game game = new Game();
+		
+	    GameView gameView  = new GameView(game);
+	    gameView.renderView(game);
 	}
 
 }

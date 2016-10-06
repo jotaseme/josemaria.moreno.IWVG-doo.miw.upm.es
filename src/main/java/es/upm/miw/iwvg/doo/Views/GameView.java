@@ -1,29 +1,37 @@
 package es.upm.miw.iwvg.doo.Views;
 
-import es.upm.miw.iwvg.doo.Controllers.InitGameController;
 import es.upm.miw.iwvg.doo.Controllers.MenuController;
+import es.upm.miw.iwvg.doo.Models.Game;
 import es.upm.miw.iwvg.doo.Utils.IO;
 
-public class InitGameView {
+public class GameView {
 
-	TableauStackView tableauStackView = new TableauStackView();
-	StockStackView stockStackView = new StockStackView();
-	WasteStackView wasteStackView = new WasteStackView();
-	MenuController menuController = new MenuController();
-	FoundationStackView foundationStackView = new FoundationStackView();
-	
+	TableauStackView tableauStackView;
+	StockStackView stockStackView;
+	WasteStackView wasteStackView;
+	MenuController menuController;
+	FoundationStackView foundationStackView;
 
-	public void renderView(InitGameController initGame) {
+	public GameView(Game game) {
+		tableauStackView = new TableauStackView();
+		stockStackView = new StockStackView();
+		wasteStackView = new WasteStackView();
+		menuController = new MenuController(game);
+		foundationStackView = new FoundationStackView();
+
+	}
+
+	public void renderView(Game game) {
 		IO io = new IO();
 		boolean ok = true;
-		do{	
-			io.writeln("===========================");			
+		do {
+			io.writeln("===========================");
 			stockStackView.renderView();
-			wasteStackView.renderView(initGame.getWasteStack());
-			foundationStackView.renderView(initGame.getFoundation());
-			tableauStackView.renderView(initGame.getTableau());		
+			wasteStackView.renderView(game.getWasteStack());
+			foundationStackView.renderView(game.getFoundation());
+			tableauStackView.renderView(game.getTableau());
 			menuController.renderOptions();
-			menuController.optionSelector(initGame);
-		}while(ok);
+
+		} while (ok);
 	}
 }

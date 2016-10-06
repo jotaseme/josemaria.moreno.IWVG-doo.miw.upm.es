@@ -2,7 +2,7 @@ package es.upm.miw.iwvg.doo.Views;
 
 import java.util.ArrayList;
 
-import es.upm.miw.iwvg.doo.Controllers.InitGameController;
+import es.upm.miw.iwvg.doo.Models.Game;
 import es.upm.miw.iwvg.doo.Models.TableauStack;
 import es.upm.miw.iwvg.doo.Utils.IO;
 
@@ -16,7 +16,7 @@ public class TableauStackView {
 			for (int j = 0; j < tableauStack.get(i).size(); j++) {
 				new CardView(tableauStack.get(i).get(j)).render();
 			}
-			io.write(" <vacio>\n");	
+			io.write("\n");	
 		}
 
 	}

@@ -1,28 +1,36 @@
 package es.upm.miw.iwvg.doo.Controllers;
 
-import es.upm.miw.iwvg.doo.Utils.IO;
+import es.upm.miw.iwvg.doo.Models.Game;
 import es.upm.miw.iwvg.doo.Views.MenuView;
 
-public class MenuController {
+public class MenuController extends Controller {
+
+	public MenuController(Game game) {
+		super(game);
+		// TODO Auto-generated constructor stub
+	}
 
 	MenuView menuView = new MenuView();
-	InitGameController game = new InitGameController();
-	MoveActionController moveAction = new MoveActionController();
+	
+	MoveFromStackToWasteController moveFromStackToWaste = new MoveFromStackToWasteController(this.game); 
+	MoveFromWasteToFoundationController moveFromWasteToFoundation = new MoveFromWasteToFoundationController(this.game); 
 
-	IO io = new IO();
-
-	public void optionSelector(InitGameController initGame) {
+	public void optionSelector() {
+		
 		switch (this.menuView.optionSelector()) {
 		case 1:
-			moveAction.move(initGame);
-			// case 2:
-			// moveAction.move(game.getWasteStack(), game.getStockStack());
+			moveFromStackToWaste.move();
+			break;
+		case 3:
+			moveFromWasteToFoundation.move();
+			
 		}
 
 	}
 
 	public void renderOptions() {
 		menuView.renderMenu();
+		this.optionSelector();
 
 	}
 

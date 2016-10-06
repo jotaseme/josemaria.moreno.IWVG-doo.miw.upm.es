@@ -17,7 +17,8 @@ public class FoundationStackView {
 			}else{
 				for (int j = 0; j < foundationStack.get(i).size(); j++) {
 					new CardView(foundationStack.get(i).get(j)).render();
-				}				
+				}		
+				io.write("\n");	
 			}
 		}
 

@@ -26,11 +26,13 @@ public class MenuView {
 	}
 
 	public void renderMenu() {
-		
-
 		for (String m : this.menu) {
 			io.writeln(m);
 		}
+	}
+	
+	public int foundationSelector(){
+		return new LimitedIntDialog("Seleccione palo?", 1, 4).read();		
 	}
 
 }

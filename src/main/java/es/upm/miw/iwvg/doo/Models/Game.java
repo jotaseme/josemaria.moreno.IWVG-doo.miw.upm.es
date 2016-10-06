@@ -1,24 +1,17 @@
-package es.upm.miw.iwvg.doo.Controllers;
+package es.upm.miw.iwvg.doo.Models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Stack;
 
-import es.upm.miw.iwvg.doo.Models.Card;
-import es.upm.miw.iwvg.doo.Models.CardType;
-import es.upm.miw.iwvg.doo.Models.FoundationStack;
-import es.upm.miw.iwvg.doo.Models.FoundationType;
-import es.upm.miw.iwvg.doo.Models.StockStack;
-import es.upm.miw.iwvg.doo.Models.TableauStack;
-import es.upm.miw.iwvg.doo.Models.WasteStack;
-
-public class InitGameController {
+public class Game {
 
 	private StockStack stockStack;
 	private WasteStack wasteStack;
 	private ArrayList<TableauStack> tableaus;
 	private ArrayList<FoundationStack> foundations;
 
-	public InitGameController() {
+	public Game() {
 
 		stockStack = new StockStack();
 		wasteStack = new WasteStack();
@@ -68,13 +61,73 @@ public class InitGameController {
 
 	}
 
-	public void setWasteStack(WasteStack w) {
-		this.wasteStack = w;
+	public void setWasteStack(WasteStack wasteStack) {
+		this.wasteStack = wasteStack;
 	}
 
 	public ArrayList<FoundationStack> getFoundation() {
 		return this.foundations;
 
 	}
+	
+	 public FoundationStack getFoundationByIndex(int index) {
+	 	return this.foundations.get(index);
+	 }
+	 
+	 public boolean sameFoundationType(Card card1, FoundationStack foundation){
+		 if(card1.getCharCardType() == foundation.getFoundationType().toString().charAt(0)){
+			 return true;
+		 }else{
+			 return false;
+		 } 
+	 }
+	 
+	 public boolean checkPush(int from, int to){
+		 if(++from == to){
+			 return true;
+		 }
+		return false;
+	 }
+	 
+	 public void move(Stack<Card> from, Stack<Card> to){
+		 from.peek().setHidden(false);
+		 to.push(from.pop());	
+	 }
+	 
+	 public boolean checkMoveWasteToFundation(WasteStack fromStack, FoundationStack toStack){
+		 assert fromStack != null;
+	     assert toStack != null;
+
+	     if(fromStack.size()>0){
+	    	 
+	    	 if(toStack.size()>0){
+	    		 if(this.sameFoundationType(fromStack.peek(),toStack) 
+	    				 && this.checkPush(fromStack.peek().getValue(),toStack.peek().getValue())){
+	    			 return true;
+	    		 }else{	    			
+	    			 
+	    			 System.out.println("ERROR PRO NUMERO");
+	    			 return false;
+	    		 }
+	    		 
+	    	 }else{
+	    		 if(this.sameFoundationType(fromStack.peek(),toStack)){	    			 
+	    			 return true;
+	    		 }else{
+	    			//ERROR POR PALO
+	    			
+	    			return false;
+	    			 
+	    		 }
+	    	 }
+	    	 
+	     }else{
+	    	 //ERROR PORQUE NO HAY CARTAS EN EL DESCARTE
+	    	 return false;
+	    	
+	     }
+	     
+		 
+	 }
 
 }
