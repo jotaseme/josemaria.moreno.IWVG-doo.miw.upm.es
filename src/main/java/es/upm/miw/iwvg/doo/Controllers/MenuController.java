@@ -7,23 +7,27 @@ public class MenuController extends Controller {
 
 	public MenuController(Game game) {
 		super(game);
-		// TODO Auto-generated constructor stub
 	}
 
 	MenuView menuView = new MenuView();
 	
 	MoveFromStackToWasteController moveFromStackToWaste = new MoveFromStackToWasteController(this.game); 
 	MoveFromWasteToFoundationController moveFromWasteToFoundation = new MoveFromWasteToFoundationController(this.game); 
+	MoveFromWasteToTableauController moveFromWasteToTableau = new MoveFromWasteToTableauController(this.game); 
 
-	public void optionSelector() {
-		
+	public void optionSelector() {	
 		switch (this.menuView.optionSelectorGenerator("Opcion?", 9)) {
-		case 1:
-			moveFromStackToWaste.move();
-			break;
-		case 3:
-			moveFromWasteToFoundation.move();
-			
+			case 1:
+				moveFromStackToWaste.move();
+				break;
+			case 2:
+				break;
+			case 3:
+				moveFromWasteToFoundation.move();
+				break;
+			case 4:
+				moveFromWasteToTableau.move();
+				break;			
 		}
 
 	}

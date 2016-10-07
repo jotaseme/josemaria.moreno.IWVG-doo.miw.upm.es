@@ -33,9 +33,4 @@ public class MenuView {
 		return new LimitedIntDialog(titulo, 1, max).read();
 	}
 
-	
-	public int tableauSelector(){
-		return new LimitedIntDialog("A qu� escalera?", 1, 7).read();		
-	}
-
 }
