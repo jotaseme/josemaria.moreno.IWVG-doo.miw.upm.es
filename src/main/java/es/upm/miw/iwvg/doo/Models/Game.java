@@ -98,25 +98,22 @@ public class Game {
 		 assert fromStack != null;
 	     assert toStack != null;
 
-	     if(fromStack.size()>0){    	 
-	    	 if(toStack.size()>0){
+	     if(!fromStack.isEmpty()){    	 
+	    	 if(!toStack.isEmpty()){
 	    		 if(this.sameFoundationType(fromStack.peek(),toStack) 
 	    				 && this.checkPush(fromStack.peek().getValue(),toStack.peek().getValue())){
 	    			 return true;
-	    		 }else{	    				    			 
-	    			 System.out.println("ERROR PRO NUMERO");
+	    		 }else{	    				    			     			 
 	    			 return false;
 	    		 }	    		 
 	    	 }else{
 	    		 if(this.sameFoundationType(fromStack.peek(),toStack) && fromStack.peek().isAce()){	    			 
 	    			 return true;
 	    		 }else{
-	    			//ERROR POR PALO
 	    			 return false;	    			 
 	    		 }
 	    	 }	    	 
 	     }else{
-	    	 //ERROR PORQUE NO HAY CARTAS EN EL DESCARTE
 	    	 return false;
 	    	
 	     }

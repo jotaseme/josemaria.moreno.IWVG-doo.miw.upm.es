@@ -2,10 +2,13 @@ package es.upm.miw.iwvg.doo.Controllers;
 
 import es.upm.miw.iwvg.doo.Controllers.Interfaces.MoveFromStackToStack;
 import es.upm.miw.iwvg.doo.Models.Game;
+import es.upm.miw.iwvg.doo.Utils.LimitedIntDialog;
+import es.upm.miw.iwvg.doo.Views.ErrorView;
 import es.upm.miw.iwvg.doo.Views.MenuView;
 
 public class MoveFromWasteToFoundationController extends Controller implements MoveFromStackToStack {
 	MenuView menuView;
+	ErrorView errorView = new ErrorView();
 	int selector;
 	protected MoveFromWasteToFoundationController(Game game) {
 		super(game);
@@ -15,7 +18,12 @@ public class MoveFromWasteToFoundationController extends Controller implements M
 	public boolean canMove() {
 		menuView = new MenuView();	
 		selector = menuView.foundationSelector()-1;
-		return this.game.checkMoveWasteToFundation(game.getWasteStack(), game.getFoundationByIndex(this.selector));
+		if(game.checkMoveWasteToFundation(game.getWasteStack(), game.getFoundationByIndex(this.selector))){
+			return true;
+		}else{
+			errorView.render();
+			return false;
+		}
 	}
 
 	@Override
