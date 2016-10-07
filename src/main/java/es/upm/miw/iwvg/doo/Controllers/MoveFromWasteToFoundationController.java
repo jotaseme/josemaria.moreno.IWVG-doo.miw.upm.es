@@ -8,16 +8,17 @@ import es.upm.miw.iwvg.doo.Views.MenuView;
 
 public class MoveFromWasteToFoundationController extends Controller implements MoveFromStackToStack {
 	MenuView menuView;
-	ErrorView errorView = new ErrorView();
+	ErrorView errorView;
 	int selector;
 	protected MoveFromWasteToFoundationController(Game game) {
 		super(game);
+		menuView = new MenuView();	
+		errorView = new ErrorView();
 	}
 
 	@Override
-	public boolean canMove() {
-		menuView = new MenuView();	
-		selector = menuView.foundationSelector()-1;
+	public boolean canMove() {		
+		selector = menuView.optionSelectorGenerator("Seleccione palo?", 4)-1;
 		if(game.checkMoveWasteToFundation(game.getWasteStack(), game.getFoundationByIndex(this.selector))){
 			return true;
 		}else{

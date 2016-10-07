@@ -17,7 +17,7 @@ public class MenuController extends Controller {
 
 	public void optionSelector() {
 		
-		switch (this.menuView.optionSelector()) {
+		switch (this.menuView.optionSelectorGenerator("Opcion?", 9)) {
 		case 1:
 			moveFromStackToWaste.move();
 			break;

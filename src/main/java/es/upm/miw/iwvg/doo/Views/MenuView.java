@@ -21,9 +21,7 @@ public class MenuView {
 		menu.add("9. Salir");
 	}
 
-	public int optionSelector() {
-		return new LimitedIntDialog("Opcion?", 1, 9).read();
-	}
+	
 
 	public void renderMenu() {
 		for (String m : this.menu) {
@@ -31,8 +29,13 @@ public class MenuView {
 		}
 	}
 	
-	public int foundationSelector(){
-		return new LimitedIntDialog("Seleccione palo?", 1, 4).read();		
+	public int optionSelectorGenerator(String titulo, int max) {
+		return new LimitedIntDialog(titulo, 1, max).read();
+	}
+
+	
+	public int tableauSelector(){
+		return new LimitedIntDialog("A qu� escalera?", 1, 7).read();		
 	}
 
 }
