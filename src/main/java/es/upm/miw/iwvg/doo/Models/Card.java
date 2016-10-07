@@ -38,7 +38,7 @@ public class Card {
 		this.value = value;
 	}
 
-	public boolean isFirst() {
+	public boolean isAce() {
 		return value == 1;
 	}
 
