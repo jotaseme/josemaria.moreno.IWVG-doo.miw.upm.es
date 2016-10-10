@@ -11,13 +11,14 @@ public class MoveFromWasteToTableauController extends Controller implements Move
 	int selector;
 	protected MoveFromWasteToTableauController(Game game) {
 		super(game);
-		menuView = new MenuView();	
+		//menuView = new MenuView();	
 		errorView = new ErrorView();
 	}
 
 	@Override
 	public boolean canMove() {
-		selector = menuView.optionSelectorGenerator("A qué escalera?", 7)-1;
+		//selector = menuView.optionSelectorGenerator("A qué escalera?", 7)-1;
+		
 		return false;
 	}
 

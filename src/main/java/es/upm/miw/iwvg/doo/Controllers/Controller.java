@@ -9,4 +9,9 @@ public abstract class Controller {
 		assert game != null;
 		this.game = game;
 	}
+	
+	
+	protected Game getGame(){
+		return game;
+	}
 }

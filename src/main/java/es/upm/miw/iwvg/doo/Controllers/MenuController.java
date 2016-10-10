@@ -1,22 +1,33 @@
 package es.upm.miw.iwvg.doo.Controllers;
 
+import java.util.ArrayList;
+
 import es.upm.miw.iwvg.doo.Models.Game;
+import es.upm.miw.iwvg.doo.Models.Option;
 import es.upm.miw.iwvg.doo.Views.MenuView;
 
 public class MenuController extends Controller {
+	
+	private MoveFromStackToWasteController moveFromStackToWaste; 
+	private MoveFromWasteToFoundationController moveFromWasteToFoundation; 
+	private MoveFromWasteToTableauController moveFromWasteToTableau;
+	MenuView menuView;
+	
 
 	public MenuController(Game game) {
 		super(game);
+		/*moveFromStackToWaste = new MoveFromStackToWasteController(this.game);
+		moveFromWasteToFoundation = new MoveFromWasteToFoundationController(this.game); 
+		moveFromWasteToTableau = new MoveFromWasteToTableauController(this.game);*/
+		menuView = MenuView.getMenuView();
 	}
 
-	MenuView menuView = new MenuView();
-	
-	MoveFromStackToWasteController moveFromStackToWaste = new MoveFromStackToWasteController(this.game); 
-	MoveFromWasteToFoundationController moveFromWasteToFoundation = new MoveFromWasteToFoundationController(this.game); 
-	MoveFromWasteToTableauController moveFromWasteToTableau = new MoveFromWasteToTableauController(this.game); 
-
 	public void optionSelector() {	
-		switch (this.menuView.optionSelectorGenerator("Opcion?", 9)) {
+		this.menuView.optionSelectorGenerator("Opcion?", 9).getMovement();
+		
+		
+		
+		/*switch (this.menuView.optionSelectorGenerator("Opcion?", 9)) {
 			case 1:
 				moveFromStackToWaste.move();
 				break;
@@ -28,11 +39,11 @@ public class MenuController extends Controller {
 			case 4:
 				moveFromWasteToTableau.move();
 				break;			
-		}
-
+		}*/
 	}
 
 	public void renderOptions() {
+		System.out.println("AQUI");
 		menuView.renderMenu();
 		this.optionSelector();
 
