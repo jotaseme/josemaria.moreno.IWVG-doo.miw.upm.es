@@ -6,7 +6,6 @@ public abstract class Option {
 	MenuView menuView;
 	
 	public Option() {
-		//menuView = new MenuView();
 	}
 	
 	

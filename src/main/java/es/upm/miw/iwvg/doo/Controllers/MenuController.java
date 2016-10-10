@@ -1,16 +1,10 @@
 package es.upm.miw.iwvg.doo.Controllers;
 
-import java.util.ArrayList;
-
 import es.upm.miw.iwvg.doo.Models.Game;
-import es.upm.miw.iwvg.doo.Models.Option;
 import es.upm.miw.iwvg.doo.Views.MenuView;
 
 public class MenuController extends Controller {
 	
-	private MoveFromStackToWasteController moveFromStackToWaste; 
-	private MoveFromWasteToFoundationController moveFromWasteToFoundation; 
-	private MoveFromWasteToTableauController moveFromWasteToTableau;
 	MenuView menuView;
 	
 
@@ -43,7 +37,6 @@ public class MenuController extends Controller {
 	}
 
 	public void renderOptions() {
-		System.out.println("AQUI");
 		menuView.renderMenu();
 		this.optionSelector();
 
