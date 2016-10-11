@@ -19,9 +19,7 @@ public class FoundationStack extends CardStack {
 	public boolean checkMove(CardStack fromStack, CardStack toStack) {
 		assert fromStack != null;
 		assert toStack != null;
-		
-		
-		
+
 		if (!fromStack.isEmpty()) {
 			if (!toStack.isEmpty()) {
 				if (this.validPush(fromStack.peek(), toStack.peek())) {
