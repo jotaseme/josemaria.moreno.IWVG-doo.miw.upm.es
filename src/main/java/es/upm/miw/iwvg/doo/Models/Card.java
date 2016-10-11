@@ -41,5 +41,21 @@ public class Card {
 	public boolean isAce() {
 		return value == 1;
 	}
+	
+	public static boolean isDifferentType (Card card1, Card card2){	
+		if (card1.getCharCardType()==card2.getCharCardType()) {
+			return false;
+		}else {
+			return true;
+		}	
+	}
+	
+	public static boolean canPush(Card card1, Card card2){
+		if (card1.getValue()+1==card2.getValue()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 }

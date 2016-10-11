@@ -2,7 +2,6 @@ package es.upm.miw.iwvg.doo.Views;
 
 import java.util.ArrayList;
 
-import es.upm.miw.iwvg.doo.Models.Game;
 import es.upm.miw.iwvg.doo.Models.TableauStack;
 import es.upm.miw.iwvg.doo.Utils.IO;
 
