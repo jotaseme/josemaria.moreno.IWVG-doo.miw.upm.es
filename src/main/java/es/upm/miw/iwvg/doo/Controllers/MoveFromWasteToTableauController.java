@@ -18,7 +18,7 @@ public class MoveFromWasteToTableauController extends Controller implements Move
 	@Override
 	public boolean canMove() {
 		selector = menuView.optionSelectorGenerator("A qué escalera?", 7)-1;
-		if(game.checkMoveWasteToTableau(game.getWasteStack(), game.getTableauByIndex(this.selector))){
+		if(game.checkMove(game.getWasteStack(), game.getTableauByIndex(this.selector))){
 			return true;
 		}else{
 			return false;

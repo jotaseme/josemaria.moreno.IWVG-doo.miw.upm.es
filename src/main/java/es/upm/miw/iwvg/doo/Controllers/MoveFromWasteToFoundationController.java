@@ -19,7 +19,7 @@ public class MoveFromWasteToFoundationController extends Controller implements M
 	@Override
 	public boolean canMove() {		
 		selector = menuView.optionSelectorGenerator("Seleccione palo?", 4)-1;
-		if(game.checkMoveWasteToFundation(game.getWasteStack(), game.getFoundationByIndex(this.selector))){
+		if(game.checkMove(game.getWasteStack(), game.getFoundationByIndex(this.selector))){
 			return true;
 		}else{		
 			return false;

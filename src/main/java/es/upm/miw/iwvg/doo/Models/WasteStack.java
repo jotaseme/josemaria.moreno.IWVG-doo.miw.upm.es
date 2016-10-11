@@ -9,11 +9,11 @@ public class WasteStack extends CardStack{
 	}
 
 	@Override
-	public boolean checkMove(CardStack from, CardStack to) {
-		// TODO Auto-generated method stub
-		return super.checkMove(from, to);
-	}
-	
-
-	
+	public boolean checkMove(CardStack fromStack, CardStack toStack) {
+		if(fromStack.empty()){
+			return false;	
+		}else{
+			return true;
+		}
+	}	
 }
