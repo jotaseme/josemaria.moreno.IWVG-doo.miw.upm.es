@@ -16,7 +16,6 @@ public class OptionMoveFromStockToWaste extends Option {
 	@Override
 	public void getMovement() {
 		moveFromStackToWasteController.move();
-		
 	}
 
 	@Override

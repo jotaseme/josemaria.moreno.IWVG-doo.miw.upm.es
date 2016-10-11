@@ -12,14 +12,10 @@ public class Game {
 	private ArrayList<FoundationStack> foundations;
 
 	public Game() {
-
 		stockStack = new StockStack();
 		wasteStack = new WasteStack();
-
 		tableaus = new ArrayList<TableauStack>();
-
 		stacksInizialization(stockStack, tableaus);
-
 		foundations = new ArrayList<FoundationStack>();
 
 		for (FoundationType foundationType : FoundationType.values()) {
@@ -28,7 +24,6 @@ public class Game {
 	}
 
 	public void stacksInizialization(StockStack stockStack, ArrayList<TableauStack> tableauStack) {
-
 		for (CardType cardType : CardType.values()) {
 			for (int i = Card.MIN_VALUE; i <= Card.MAX_VALUE; i++) {
 				stockStack.push(new Card(i, cardType));
@@ -43,22 +38,18 @@ public class Game {
 			}
 			tableauStack.get(i).peek().setHidden(false);
 		}
-
 	}
 
 	public ArrayList<TableauStack> getTableau() {
 		return this.tableaus;
-
 	}
 
 	public StockStack getStockStack() {
 		return this.stockStack;
-
 	}
 
 	public WasteStack getWasteStack() {
 		return this.wasteStack;
-
 	}
 
 	public void setWasteStack(WasteStack wasteStack) {
@@ -67,7 +58,6 @@ public class Game {
 
 	public ArrayList<FoundationStack> getFoundation() {
 		return this.foundations;
-
 	}
 
 	public FoundationStack getFoundationByIndex(int index) {
