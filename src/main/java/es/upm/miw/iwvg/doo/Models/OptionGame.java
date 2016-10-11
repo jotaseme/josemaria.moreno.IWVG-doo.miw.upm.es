@@ -11,6 +11,7 @@ public class OptionGame extends Option {
 		menu.add(new OptionMoveFromWasteToStock(this.game));
 		menu.add(new OptionMoveFromWasteToFoundation(this.game));	
 		menu.add(new OptionMoveFromWasteToTableau(this.game));	
+		menu.add(new OptionMoveFromTableauToFoundation(this.game));	
 	}
 	@Override
 	public void getMovement() {
