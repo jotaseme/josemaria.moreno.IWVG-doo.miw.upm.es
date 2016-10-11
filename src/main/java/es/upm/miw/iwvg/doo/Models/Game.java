@@ -69,55 +69,65 @@ public class Game {
 		return this.foundations;
 
 	}
-	
-	 public FoundationStack getFoundationByIndex(int index) {
-	 	return this.foundations.get(index);
-	 }
-	 
-	 public boolean sameFoundationType(Card card1, FoundationStack foundation){
-		 if(card1.getCharCardType() == foundation.getFoundationType().toString().charAt(0)){
-			 return true;
-		 }else{
-			 return false;
-		 } 
-	 }
-	 
-	 public boolean checkPush(int from, int to){
-		 if(++from == to){
-			 return true;
-		 }
-		return false;
-	 }
-	 
-	 public void move(Stack<Card> from, Stack<Card> to){
-		 from.peek().setHidden(false);
-		 to.push(from.pop());	
-	 }
-	 
-	 public boolean checkMoveWasteToFundation(WasteStack fromStack, FoundationStack toStack){
-		 assert fromStack != null;
-	     assert toStack != null;
 
-	     if(!fromStack.isEmpty()){    	 
-	    	 if(!toStack.isEmpty()){
-	    		 if(this.sameFoundationType(fromStack.peek(),toStack) 
-	    				 && this.checkPush(fromStack.peek().getValue(),toStack.peek().getValue())){
-	    			 return true;
-	    		 }else{	    				    			     			 
-	    			 return false;
-	    		 }	    		 
-	    	 }else{
-	    		 if(this.sameFoundationType(fromStack.peek(),toStack) && fromStack.peek().isAce()){	    			 
-	    			 return true;
-	    		 }else{
-	    			 return false;	    			 
-	    		 }
-	    	 }	    	 
-	     }else{
-	    	 return false;
-	    	
-	     }
-	     		 
-	 }
+	public FoundationStack getFoundationByIndex(int index) {
+		return this.foundations.get(index);
+	}
+
+	public TableauStack getTableauByIndex(int index) {
+		return this.tableaus.get(index);
+	}
+
+	public boolean sameFoundationType(Card card1, FoundationStack foundation) {
+		if (card1.getCharCardType() == foundation.getFoundationType().toString().charAt(0)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean checkPush(int from, int to) {
+		if (++from == to) {
+			return true;
+		}
+		return false;
+	}
+
+	public void move(Stack<Card> from, Stack<Card> to) {
+		from.peek().setHidden(false);
+		to.push(from.pop());
+	}
+
+	public boolean checkMoveWasteToFundation(WasteStack fromStack, FoundationStack toStack) {
+		assert fromStack != null;
+		assert toStack != null;
+
+		if (!fromStack.isEmpty()) {
+			if (!toStack.isEmpty()) {
+				if (this.sameFoundationType(fromStack.peek(), toStack)
+						&& this.checkPush(fromStack.peek().getValue(), toStack.peek().getValue())) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				if (this.sameFoundationType(fromStack.peek(), toStack) && fromStack.peek().isAce()) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		} else {
+			return false;
+
+		}
+
+	}
+	
+	public boolean checkMoveWasteToTableau(CardStack fromStack, CardStack toStack){
+		assert fromStack != null;
+		//assert toStack != null;
+		return toStack.checkMove(fromStack, toStack);
+	}
 
 }

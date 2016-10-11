@@ -1,20 +1,24 @@
 package es.upm.miw.iwvg.doo.Models;
 
-import es.upm.miw.iwvg.doo.Views.MenuView;
+import es.upm.miw.iwvg.doo.Controllers.MoveFromWasteToFoundationController;
 
 public class OptionMoveFromWasteToFoundation extends Option {
-	public OptionMoveFromWasteToFoundation() {
-		super();
+	String option;
+	MoveFromWasteToFoundationController moveFromWasteToFoundationController;
+	public OptionMoveFromWasteToFoundation(Game game) {
+		super(game);
+		moveFromWasteToFoundationController = new MoveFromWasteToFoundationController(game);
+		option = "3. Mover de descarte a palo";
 	}
 
 	@Override
 	public void getMovement() {
-		
+		moveFromWasteToFoundationController.move();
 	}
 
 	@Override
-	public void getOpcion() {
-		MenuView.getMenuView().renderOption("3. Mover de descarte a palo");
+	public String getOpcion() {
+		return option;
 	}
 
 }

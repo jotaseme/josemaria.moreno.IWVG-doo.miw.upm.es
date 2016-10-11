@@ -9,23 +9,29 @@ public class MoveFromWasteToTableauController extends Controller implements Move
 	MenuView menuView;
 	ErrorView errorView;
 	int selector;
-	protected MoveFromWasteToTableauController(Game game) {
+	public MoveFromWasteToTableauController(Game game) {
 		super(game);
-		//menuView = new MenuView();	
+		menuView = new MenuView();	
 		errorView = new ErrorView();
 	}
 
 	@Override
 	public boolean canMove() {
-		//selector = menuView.optionSelectorGenerator("A qué escalera?", 7)-1;
-		
-		return false;
+		selector = menuView.optionSelectorGenerator("A qué escalera?", 7)-1;
+		if(game.checkMoveWasteToTableau(game.getWasteStack(), game.getTableauByIndex(this.selector))){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	@Override
 	public void move() {
-		this.canMove();
-
+		if(this.canMove()){
+			this.game.move(this.game.getWasteStack(), this.game.getTableauByIndex(this.selector));
+		}else{
+			errorView.render();
+		}
 	}
 
 }

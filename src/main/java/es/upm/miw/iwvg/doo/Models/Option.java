@@ -1,22 +1,24 @@
 package es.upm.miw.iwvg.doo.Models;
 
-import es.upm.miw.iwvg.doo.Views.MenuView;
+import java.util.ArrayList;
 
-public abstract class Option {
-	MenuView menuView;
+import es.upm.miw.iwvg.doo.Controllers.Controller;
+
+public abstract class Option extends Controller{
 	
-	public Option() {
+	public Option(Game game) {
+		super(game);
 	}
 	
-	
-	public void getMovement(){
-		
+	public void getMovement(){		
+	}
+
+	public String getOpcion(){
+		return null;		
 	}
 	
-	
-
-	public void getOpcion(){
-		
+	public ArrayList<Option> getOptionList(){
+		return null;
 	}
 
 }

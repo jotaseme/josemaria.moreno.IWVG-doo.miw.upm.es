@@ -5,7 +5,7 @@ import es.upm.miw.iwvg.doo.Models.Game;
 
 public class MoveFromStackToWasteController extends Controller implements MoveFromStackToStack {
 	
-	protected MoveFromStackToWasteController(Game game) {
+	public MoveFromStackToWasteController(Game game) {
 		super(game);
 	
 	}
